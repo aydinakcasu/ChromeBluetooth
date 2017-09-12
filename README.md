@@ -36,7 +36,7 @@
 - stressDisplay.js 
   * base on the heartrate of the heartrate monitor, set the color of the bulb to differenct shades of green, yellow or red.
  
-## Tools used"
+## Tools used:
 - Get Bluetooth information using Chrome: 
   * chrome://bluetooth-internals
 - Wireshark (to analyze packets) 
