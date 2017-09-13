@@ -27,13 +27,13 @@
     float: right ;
 }
 .cp-default .picker {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
 }
 
 .cp-default .slide {
     width: 20px;
-    height: 80px;
+    height: 100px;
 }
 .cp-default .slide-wrapper {
     margin-left: 10px;

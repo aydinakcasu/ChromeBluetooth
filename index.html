@@ -29,7 +29,7 @@
     <div style="border-style: ridge;">
         Heart Rate:<br/>
         <button onclick="heartRate_connect()">Start</button>
-        <input type="text" id="heartRate_value" value="0" style="width:30px" readonly>
+        <input type="text" id="heartRate_value" value="0" style="width:30px" readonly/>
         <button onclick="heartRate_disconnect()">Stop</button>
     </div>
     <div style="border-style: ridge; display:none">
@@ -48,8 +48,8 @@
         <button onclick="lightBulb_green()">Green</button>
         <button onclick="lightBulb_blue()">Blue</button>
         <button onclick="lightBulb_disconnect()">Stop</button>
-        <input type="text" id="rgb_value" value="0" style="width:90px" readonly>
         <div id="color-picker" class="cp-default"></div>
+        <br/>RGB: <input type="text" id="rgb_value" value="0" style="width:100px; font-family:Courier New;font-weight:bold;" readonly/>
         <div id="color-value" style="border-style: ridge;backgroundColor:Red; width: 100px;height: 100px;"></div>
     </div>
 
@@ -60,11 +60,11 @@
         <button onclick="stressDisplay_heartRate_connect()">Heart Rate Start</button>
         <button onclick="stressDisplay_disconnect()">Stop</button>
         <br/>min:
-        <input type="text" id="minStressDisplay" value="60" style="width:20px" readonly>
+        <input type="text" id="minStressDisplay" value="60" style="width:20px" readonly/>
         <input id="minStress" type="range" min="40" max="100" value="60" step="1" style="width:400px" onchange="minDisplay(this.value);"
         />
         <br/>max:
-        <input type="text" id="maxStressDisplay" value="70" style="width:20px" readonly>
+        <input type="text" id="maxStressDisplay" value="70" style="width:20px" readonly/>
         <input id="maxStress" type="range" min="40" max="100" value="70" step="1" style="width:400px" onchange="maxDisplay(this.value);"
         />
     </div>
