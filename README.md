@@ -17,7 +17,7 @@
 ## Requirements:
 - Chrome version 56+
 
-## To try it out:
+## To try it out! (Live Demo):
 - https://aydinakcasu.github.io/ChromeBluetooth/
 
 ## To use:
@@ -47,8 +47,16 @@
 ## Where to buy:
 - Sharper Image LED Bulb Bluetooth Speaker (SBT5007)
   * Ace Hardware: $22.99
-  * Menards – Online ($11)
+  * Menards: Online ($11)
 - Crane Heart Rate Monitor
   * About $15 at Aldi
   * Just about anywhere ($20+)
+
+## Other helpful links:
+- “Web Bluetooth (100 Days of Google Dev)
+  * https://www.youtube.com/watch?v=I3obFcCw8mk
+- Interact with Bluetooth devices on the Web
+  * https://developers.google.com/web/updates/2015/07/interact-with-ble-devices-on-the-web
+- Reverse Engineering a Bluetooth Lightbulb
+  * https://medium.com/@urish/reverse-engineering-a-bluetooth-lightbulb-56580fcb7546
 
