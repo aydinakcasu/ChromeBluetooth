@@ -89,13 +89,14 @@ function stressDisplay_read(event) {
  
     setColorValue(lut.r, lut.g, lut.b);
 
-    log('{'
-        + '0x' + ('0' + (lut.r & 0xFF).toString(16)).slice(-2) + ', '
-        + '0x' + ('0' + (lut.g & 0xFF).toString(16)).slice(-2) + ', '
-        + '0x' + ('0' + (lut.b & 0xFF).toString(16)).slice(-2)
-        + '}, '
-        + bpm.toString().padStart(3) + '|' + '-'.repeat(bpm-40) + '>'
-    );
+    // log('{'
+    //     + '0x' + ('0' + (lut.r & 0xFF).toString(16)).slice(-2) + ', '
+    //     + '0x' + ('0' + (lut.g & 0xFF).toString(16)).slice(-2) + ', '
+    //     + '0x' + ('0' + (lut.b & 0xFF).toString(16)).slice(-2)
+    //     + '}, '
+    //     + bpm.toString().padStart(3) + '|' + '-'.repeat(bpm - 40) + '>'
+    // );
+    log(bpm.toString().padStart(3) + '|' + '-'.repeat(bpm-40) + '>');
 
     var send = getPayload(lut.r, lut.g, lut.b);
     stressDisplayLightBulb_Characteristic.writeValue(send);
