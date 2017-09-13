@@ -34,7 +34,7 @@ function maxDisplay(val) {
 function setColorValue(r,g,b)
 {
     function componentToHex(c) {
-        var hex = c.toString(16);
+        var hex = parseInt(c).toString(16);
         return hex.length == 1 ? "0" + hex : hex;
     }
 
