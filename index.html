@@ -10,45 +10,80 @@
     <script src="temperature.js"></script>
     <script src="lightBulb.js"></script>
     <script src="stressDisplay.js"></script>
+    <script type="text/javascript" src="tools/colorpicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/themes.css" />
 
     <title>Chrome Bluetooth Demo</title>
 </head>
 
-<body>
-    <br/> <button onclick="deviceInfo_connect()">Device Information</button>
+<body style="backgroundColor:Red;">
+    Chrome Bluetooth Demo:<br/>
+    <hr/>
 
-    <br/> <button onclick="battery_connect()">Battery Information</button>
-
-    <br/> <button onclick="heartRate_connect()">Heart Rate</button>
-    <button onclick="heartRate_disconnect()">Stop</button>
-
-    <br/> <button onclick="temperature_connect()">Temperature</button>
-    <button onclick="temperature_disconnect()">Stop</button>
-
-    <br/> <button onclick="lightBulb_connect()">Light Bulb</button>
-    <button onclick="lightBulb_traffic()">Traffic</button>
-    <button onclick="lightBulb_red()">Red</button>
-    <button onclick="lightBulb_yellow()">Yellow</button>
-    <button onclick="lightBulb_green()">Green</button>
-    <button onclick="lightBulb_blue()">Blue</button>
-    <button onclick="lightBulb_disconnect()">Stop</button>
-
-    <br/> <br/> Stress Display:
-    <button onclick="stressDisplay_lightBulb_connect()">Light Bulb Init</button>
-    <button onclick="stressDisplay_heartRate_connect()">Heart Rate Init</button>
-    <button onclick="stressDisplay_disconnect()">Stop</button>
-    <br/>min:
-    <input type="text" id="minStressDisplay" value="60" style="width:20px" readonly>
-    <input id="minStress" type="range" min="40" max="100" value="60" step="1" style="width:400px" onchange="minDisplay(this.value);"
-    />
-    <br/>max:
-    <input type="text" id="maxStressDisplay" value="70" style="width:20px" readonly>
-    <input id="maxStress" type="range" min="40" max="100" value="70" step="1" style="width:400px" onchange="maxDisplay(this.value);"
-    />
+    <div style="border-style: ridge;">
+        Basic:<br/>
+        <button onclick="deviceInfo_connect()">Device Information</button>
+        <button onclick="battery_connect()">Battery Information</button>
+    </div>
+    <br/>
+    <div style="border-style: ridge;">
+        Heart Rate:<br/>
+        <button onclick="heartRate_connect()">Start</button>
+        <input type="text" id="heartRate_value" value="0" style="width:30px" readonly>
+        <button onclick="heartRate_disconnect()">Stop</button>
+    </div>
+    <div style="border-style: ridge; display:none">
+        <br/> Temperature:
+        <br/>
+        <button onclick="temperature_connect()">Start</button>
+        <button onclick="temperature_disconnect()">Stop</button>
+    </div>
+    <br/>
+    <div style="border-style: ridge;">
+        Light Bulb:<br/>
+        <button onclick="lightBulb_connect()">Start</button>
+        <button onclick="lightBulb_traffic()">Traffic</button>
+        <button onclick="lightBulb_red()">Red</button>
+        <button onclick="lightBulb_yellow()">Yellow</button>
+        <button onclick="lightBulb_green()">Green</button>
+        <button onclick="lightBulb_blue()">Blue</button>
+        <button onclick="lightBulb_disconnect()">Stop</button>
+        <input type="text" id="rgb_value" value="0" style="width:90px" readonly>
+        <div id="color-picker" class="cp-default"></div>
+        <div id="color-value" style="border-style: ridge;backgroundColor:Red; width: 100px;height: 100px;"></div>
+    </div>
 
     <br/>
+    <div style="border-style: ridge;">
+        Stress Display:<br/>
+        <button onclick="stressDisplay_lightBulb_connect()">Light Bulb Start</button>
+        <button onclick="stressDisplay_heartRate_connect()">Heart Rate Start</button>
+        <button onclick="stressDisplay_disconnect()">Stop</button>
+        <br/>min:
+        <input type="text" id="minStressDisplay" value="60" style="width:20px" readonly>
+        <input id="minStress" type="range" min="40" max="100" value="60" step="1" style="width:400px" onchange="minDisplay(this.value);"
+        />
+        <br/>max:
+        <input type="text" id="maxStressDisplay" value="70" style="width:20px" readonly>
+        <input id="maxStress" type="range" min="40" max="100" value="70" step="1" style="width:400px" onchange="maxDisplay(this.value);"
+        />
+    </div>
+
     <br/>Results:
     <br/> <textarea id="results" cols="130" rows="20" style="font-family:Courier New;font-weight:bold;"></textarea>
 </body>
 
 </html>
+
+
+<script type="text/javascript">
+    ColorPicker(
+        document.getElementById('color-picker'),
+        function(hex, hsv, rgb) {
+            //console.log(hsv.h, hsv.s, hsv.v);         // [0-359], [0-1], [0-1]
+            //console.log(rgb.r, rgb.g, rgb.b);         // [0-255], [0-255], [0-255]
+            //document.getElementById('color-value').style.backgroundColor = hex;
+            lightBulb_common(rgb.r, rgb.g, rgb.b); 
+            //document.body.style.backgroundColor = hex;        // #HEX
+    });
+</script>

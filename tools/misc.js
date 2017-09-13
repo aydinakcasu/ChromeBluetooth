@@ -30,3 +30,22 @@ function minDisplay(val) {
 function maxDisplay(val) {
     document.getElementById('maxStressDisplay').value = val;
 }
+
+function setColorValue(r,g,b)
+{
+    function componentToHex(c) {
+        var hex = parseInt(c).toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
+    }
+
+    function rgbToHex(r, g, b) {
+        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
+    document.getElementById('rgb_value').value = 
+        '('
+            +'0x'+ componentToHex(r)+','
+            +'0x'+componentToHex(g)+','
+            +'0x'+componentToHex(b) 
+        +')';
+    document.getElementById('color-value').style.backgroundColor = rgbToHex(r,g,b);
+}

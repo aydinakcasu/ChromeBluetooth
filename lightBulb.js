@@ -63,6 +63,7 @@ function lightBulb_traffic(characteristic) {   // Set a traffic light pattern
 function lightBulb_common(r, g, b) {
     var send = getPayload(r, g, b);    // Color
     lightBulb_Characteristic.writeValue(send);
+    setColorValue(r, g, b);
     sleep(50);
 }
 

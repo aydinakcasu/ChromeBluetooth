@@ -84,6 +84,8 @@ function stressDisplay_read(event) {
                     g: 0xef * (bpm - minStress) / (maxStress - minStress) + 0x10,
                     b: 0x00
                 }; // yellow
+ 
+    setColorValue(lut.r, lut.g, lut.b);
 
     log('{'
         + '0x' + ('0' + (lut.r & 0xFF).toString(16)).slice(-2) + ', '
