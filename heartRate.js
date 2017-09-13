@@ -34,7 +34,9 @@ function hearRate_read(event) {
     let value = event.target.value;
 
     var bpm = value.getUint8(1);
-    log(bpm.toString().padStart(3) + '|' + '-'.repeat(bpm) + '>');
+    setHeartRateValue(bpm);
+
+    log(bpm.toString().padStart(3) + '|' + '-'.repeat(bpm-40) + '>');
 }
 
 function heartRate_disconnect() {
