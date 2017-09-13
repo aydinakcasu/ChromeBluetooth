@@ -176,3 +176,9 @@
     background-color: white;
     pointer-events: none;
 }
+
+
+* {
+ font-size: 100%;
+ font-family: Verdana;
+}
