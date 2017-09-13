@@ -13,7 +13,9 @@ function battery_connect() {
         .then(service => { return service.getCharacteristic(characteristicUuid); })
         .then(characteristic => { return characteristic.readValue(); })
         .then(value => {
-            log('Battery percentage is ' + value.getUint8(0));
+            var percentage = value.getUint8(0);
+            setBatteryPercentage(percentage);
+            log('Battery percentage is ' + percentage);
         })
         .catch(error => {
             log('Error! ' + error);

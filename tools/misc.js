@@ -23,6 +23,12 @@ function sleep(delay) {
     while (new Date().getTime() < start + delay);
 }
 
+
+function setBatteryPercentage(value)
+{
+    document.getElementById('battery_value').value = value;
+}
+
 function minDisplay(val) {
     document.getElementById('minStressDisplay').value = val;
 }
