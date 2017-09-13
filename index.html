@@ -16,7 +16,7 @@
     <title>Chrome Bluetooth Demo</title>
 </head>
 
-<body style="backgroundColor:Red;">
+<body style=" width:500px;">
     Chrome Bluetooth Demo:<br/>
     <hr/>
 
@@ -50,7 +50,7 @@
         <button onclick="lightBulb_blue()">Blue</button>
         <button onclick="lightBulb_disconnect()">Stop</button>
         <div id="color-picker" class="cp-default"></div>
-        <br/>RGB: <input type="text" id="rgb_value" value="0" style="width:120px; font-family:Courier New;font-weight:bold;" readonly/>
+        <br/>RGB: <input type="text" id="rgb_value" value="0" style="width:200px; font-family:Courier New;font-weight:bold;" readonly/>
         <div id="color-value" style="border-style: ridge;backgroundColor:Red; width: 100px;height: 100px;"></div>
     </div>
 
@@ -60,18 +60,18 @@
         <button onclick="stressDisplay_lightBulb_connect()">Light Bulb Start</button>
         <button onclick="stressDisplay_heartRate_connect()">Heart Rate Start</button>
         <button onclick="stressDisplay_disconnect()">Stop</button>
-        <br/>min:
+        <br/><label style="width: 250px;">min:</label>
         <input type="text" id="minStressDisplay" value="60" style="width:20px" readonly/>
         <input id="minStress" type="range" min="40" max="100" value="60" step="1" style="width:400px" onchange="minDisplay(this.value);"
         />
-        <br/>max:
+        <br/><label style="width: 150px;">max:</label>
         <input type="text" id="maxStressDisplay" value="70" style="width:20px" readonly/>
-        <input id="maxStress" type="range" min="40" max="100" value="70" step="1" style="width:400px" onchange="maxDisplay(this.value);"
+        <input id="maxStress" type="range"  value="70" step="1" style="width:400px" onchange="maxDisplay(this.value);"
         />
     </div>
 
     <br/>Results:
-    <br/> <textarea id="results" cols="130" rows="20" style="font-family:Courier New;font-weight:bold;"></textarea>
+    <br/> <textarea id="results" rows="10" style="width:100%;font-family:Courier New;font-weight:bold;"></textarea>
 </body>
 
 </html>
