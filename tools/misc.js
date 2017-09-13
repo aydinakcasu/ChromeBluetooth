@@ -49,3 +49,8 @@ function setColorValue(r,g,b)
         +')';
     document.getElementById('color-value').style.backgroundColor = rgbToHex(r,g,b);
 }
+
+function setHeartRateValue(bpm)
+{
+    document.getElementById('heartRate_value').value = bpm;
+}

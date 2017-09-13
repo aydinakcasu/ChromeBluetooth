@@ -71,6 +71,8 @@ function stressDisplay_read(event) {
     let value = event.target.value;
 
     var bpm = value.getUint8(1);
+    setHeartRateValue(bpm);
+
     var minStress = parseInt(document.getElementById("minStress").value);
     var maxStress = parseInt(document.getElementById("maxStress").value);
 
