@@ -50,16 +50,13 @@ function getPayload(r, g, b) {   // Create the payload
 function lightBulb_traffic(characteristic) {   // Set a traffic light pattern
     characteristic = characteristic || lightBulb_Characteristic;
 
-    var send = getPayload(0x00, 0xff, 0x00);    // Green
-    characteristic.writeValue(send);
+    lightBulb_green();
     sleep(2000);
 
-    var send = getPayload(0xff, 0xff, 0x00);    // Yellow
-    characteristic.writeValue(send);
+    lightBulb_yellow();
     sleep(500);
 
-    var send = getPayload(0xff, 0x00, 0x00);    // Red
-    characteristic.writeValue(send);
+    lightBulb_red();
     sleep(1000);
 }
 
