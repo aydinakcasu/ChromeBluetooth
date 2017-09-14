@@ -4,7 +4,7 @@ var lightBulb_Characteristic = null;
 function lightBulb_connect() {   // Connect
     let serviceUuid = '00007777-0000-1000-8000-00805f9b34fb';
     let characteristicUuid = '00008877-0000-1000-8000-00805f9b34fb';
-
+alert('a');
     navigator.bluetooth.requestDevice
         ({
             acceptAllDevices: true,
