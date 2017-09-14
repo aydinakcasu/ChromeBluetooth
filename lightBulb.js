@@ -1,23 +1,14 @@
 
 var lightBulb_Characteristic = null;
 
-var lightBulb_specs = {  // LightBulb Service and Characteristics
-    uuid: 0x00007777,
-    service: '00007777-0000-1000-8000-00805f9b34fb',
-    characteristic: ['00008877-0000-1000-8000-00805f9b34fb']
-};
-
 function lightBulb_connect() {   // Connect
-    let serviceUuid = lightBulb_specs.service;
-    let characteristicUuid = lightBulb_specs.characteristic[0]
-
+    let serviceUuid = '00007777-0000-1000-8000-00805f9b34fb';
+    let characteristicUuid = '00008877-0000-1000-8000-00805f9b34fb';
+alert('a');
     navigator.bluetooth.requestDevice
         ({
             acceptAllDevices: true,
-            optionalServices: [
-                lightBulb_specs.uuid,
-                lightBulb_specs.service,
-            ]
+            optionalServices: [serviceUuid]
         })
         .then(device => { return device.gatt.connect(); })
         .then(server => { return server.getPrimaryService(serviceUuid); })
