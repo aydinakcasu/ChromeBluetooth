@@ -1,26 +1,21 @@
 
+var stressDisplayLightBulb_Device = null;
 var stressDisplayLightBulb_Characteristic = null;
 var stressDisplayHeartRate_Characteristic = null;
 
-var stressDisplay_specs = {
-    uuid: 0x7777,
-    service: '00007777-0000-1000-8000-00805f9b34fb',
-    characteristic: ['00008877-0000-1000-8000-00805f9b34fb']
-};
-
 function stressDisplay_lightBulb_connect() {
-    var serviceUuid = stressDisplay_specs.service;
-    var characteristicUuid = stressDisplay_specs.characteristic[0]
+    let serviceUuid = '00007777-0000-1000-8000-00805f9b34fb';
+    let characteristicUuid = '00008877-0000-1000-8000-00805f9b34fb';
 
     navigator.bluetooth.requestDevice
         ({
             acceptAllDevices: true,
-            optionalServices: [
-                stressDisplay_specs.uuid,
-                // stressDisplay_specs.service,
-            ]
+            optionalServices: [serviceUuid]
         })
-        .then(device => { return device.gatt.connect(); })
+        .then(device => {
+            stressDisplayLightBulb_Device = device;
+            return device.gatt.connect();
+        })
         .then(server => { return server.getPrimaryService(serviceUuid); })
         .then(service => { return service.getCharacteristic(characteristicUuid); })
 
@@ -86,7 +81,7 @@ function stressDisplay_read(event) {
                     g: 0xef * (bpm - minStress) / (maxStress - minStress) + 0x10,
                     b: 0x00
                 }; // yellow
- 
+
     setColorValue(lut.r, lut.g, lut.b);
 
     // log('{'
@@ -96,7 +91,7 @@ function stressDisplay_read(event) {
     //     + '}, '
     //     + bpm.toString().padStart(3) + '|' + '-'.repeat(bpm - 40) + '>'
     // );
-    log(bpm.toString().padStart(3) + '|' + '-'.repeat(bpm-40) + '>');
+    log(bpm.toString().padStart(3) + '|' + '-'.repeat(bpm - 40) + '>');
 
     var send = getPayload(lut.r, lut.g, lut.b);
     stressDisplayLightBulb_Characteristic.writeValue(send);
@@ -111,16 +106,12 @@ function getPayload(r, g, b) {   // Create the payload
         r, // Red
         0x00, 0x50, 0x00, 0x00, 0x00
     ];
-    return Uint8Array.from(data); Í
+    return Uint8Array.from(data);
 }
 
 function stressDisplay_disconnect() {   // Disconnect
-    if (stressDisplayLightBulb_Characteristic) {
-        stressDisplayLightBulb_Characteristic.stopNotifications()
-            .then(_ => { })
-            .catch(error => {
-                log('Error! ' + error);
-            });
+    if (stressDisplayLightBulb_Device.gatt.connected) {
+        stressDisplayLightBulb_Device.gatt.disconnect();
     }
     if (stressDisplayHeartRate_Characteristic) {
         stressDisplayHeartRate_Characteristic.stopNotifications()
