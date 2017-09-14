@@ -31,7 +31,7 @@ function heartRate_connect() {
         });
 }
 
-function hearRate_read(event) {
+function heartRate_read(event) {
     let value = event.target.value;
 
     var bpm = value.getUint8(1);
@@ -46,7 +46,7 @@ function heartRate_disconnect() {
             .then(_ => {
                 heartRate_Characteristic.removeEventListener(
                     'characteristicvaluechanged',
-                    hearRate_read);
+                    heartRate_read);
             })
             .catch(error => {
                 log('Error! ' + error);
