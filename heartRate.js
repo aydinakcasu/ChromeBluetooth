@@ -23,7 +23,7 @@ function heartRate_connect() {
                 .then(_ => {
                     heartRate_Characteristic.addEventListener(
                         'characteristicvaluechanged',
-                        hearRate_read);
+                        heartRate_read);
                 });
         })
         .catch(error => {   // Handle Errors
