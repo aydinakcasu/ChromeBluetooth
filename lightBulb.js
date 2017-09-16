@@ -69,7 +69,9 @@ function lightBulb_green() {            // Green
 function lightBulb_blue() {             // Blue
     lightBulb_common(0x00, 0x00, 0xff); // Blue
 }
-
+function lightBulb_black() {             // Black
+    lightBulb_common(0x00, 0x00, 0x00); // Black
+}
 function lightBulb_disconnect() {   // Disconnect
     if (lightBulb_Device.gatt.connected) {
         lightBulb_Device.gatt.disconnect();
