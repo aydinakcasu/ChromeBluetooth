@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="tools/misc.js"></script>
+    <script src="lightBulb.js"></script>
+    <script type="text/javascript" src="tools/colorpicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/themes.css" />
+
+    <title>Chrome Bluetooth Demo</title>
+</head>
+
+<body style=" width:500px;">
+    Chrome Bluetooth Talk - Assist:<br/>
+    <br/>
+    <div style="border-style: ridge;">
+        Light Bulb:<br/>
+        <br/><button onclick="lightBulb_connect()" style="width:200px; height:50px;">Start</button>
+        <br/><button onclick="lightBulb_traffic()" style="width:200px; height:50px;" >Traffic</button>
+        <br/><button onclick="lightBulb_red()" style="width:200px; height:50px; background-color: #FFAEAE;">Red</button>
+        <br/><button onclick="lightBulb_yellow()" style="width:200px; height:50px; background-color: #FFF0AA;">Yellow</button>
+        <br/><button onclick="lightBulb_green()" style="width:200px; height:50px; background-color: #B0E57C;">Green</button>
+        <br/><button onclick="lightBulb_blue()" style="width:200px; height:50px; background-color: #B4D8E7;">Blue</button>
+        <br/><button onclick="lightBulb_black()" style="width:200px; height:50px; background-color: #808080;">Black</button>
+        <br/><button onclick="lightBulb_common(255,255,255)" style="width:200px; height:50px; background-color: White;">White</button>
+        <div id="color-picker" class="cp-default"></div>
+        <br/>RGB: <input type="text" id="rgb_value" value="0" style="width:200px; font-family:Courier New;font-weight:bold;"
+            readonly/>
+        <div id="color-value" style="border-style: ridge;backgroundColor:Red; width: 100px;height: 100px;"></div>
+        <br/><button onclick="lightBulb_disconnect()" style="width:200px; height:50px;">Stop</button>
+    </div>
+</body>
+
+</html>
+
+
+<script type="text/javascript">
+    ColorPicker(
+        document.getElementById('color-picker'),
+        function(hex, hsv, rgb) {
+            //console.log(hsv.h, hsv.s, hsv.v);         // [0-359], [0-1], [0-1]
+            //console.log(rgb.r, rgb.g, rgb.b);         // [0-255], [0-255], [0-255]
+            //document.getElementById('color-value').style.backgroundColor = hex;
+            lightBulb_common(rgb.r, rgb.g, rgb.b); 
+            //document.body.style.backgroundColor = hex;        // #HEX
+    });
+</script>
