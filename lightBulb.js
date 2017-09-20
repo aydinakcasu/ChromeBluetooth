@@ -72,6 +72,32 @@ function lightBulb_blue() {             // Blue
 function lightBulb_black() {             // Black
     lightBulb_common(0x00, 0x00, 0x00); // Black
 }
+
+function lightBulb_countdown() {
+    var a = new Date();
+    var length = 2000; // 2 min
+    var length = 4000; // 8 min
+    for (var i = length; i > 0; i -= 100) {
+        lightBulb_green();
+        sleep(i);
+        lightBulb_black();
+        sleep(i);
+        lightBulb_yellow();
+        sleep(i);
+        lightBulb_black();
+        sleep(i);
+        lightBulb_red();
+        sleep(i);
+        lightBulb_black();
+        sleep(i);
+    }
+
+    lightBulb_blue();
+    var b = new Date();
+    alert(a.toString()+', '+b.toString())
+
+}
+
 function lightBulb_disconnect() {   // Disconnect
     if (lightBulb_Device.gatt.connected) {
         lightBulb_Device.gatt.disconnect();
