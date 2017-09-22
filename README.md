@@ -25,7 +25,11 @@
 - https://aydinakcasu.github.io/ChromeBluetooth/
 ![Screenshot](https://user-images.githubusercontent.com/2898451/30746090-8ea0e276-9f76-11e7-93ea-6d896c6c52aa.png)
 
-## To use:
+## If you do not have a Bluetooth Heart-Rate monitor:
+- You can use on android: "BLE Peripheral Simulator"
+![Screenshot](https://user-images.githubusercontent.com/2898451/30756414-9ed26d46-9f98-11e7-868f-f469cee4f30b.png)
+
+## File summary:
 - index.html 
   * the main page.
 - deviceInfo.js 
@@ -92,3 +96,5 @@
 ![Screenshot](https://user-images.githubusercontent.com/2898451/30746795-03799460-9f79-11e7-94e7-aa966bcbc0f1.png)
 - Bulb
 ![Screenshot](https://user-images.githubusercontent.com/2898451/30747106-2fb89a84-9f7a-11e7-8cd4-b86e86ca3709.png)
+- Androit App
+![Screenshot](https://user-images.githubusercontent.com/2898451/30756414-9ed26d46-9f98-11e7-868f-f469cee4f30b.png)
