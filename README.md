@@ -53,6 +53,7 @@
 - Sharper Image LED Bulb Bluetooth Speaker (SBT5007)
   * Ace Hardware: $22.99
   * Menards: Online ($11)
+  ![Screenshot](https://user-images.githubusercontent.com/2898451/30747106-2fb89a84-9f7a-11e7-8cd4-b86e86ca3709.png)
 - Crane Heart Rate Monitor
   * About $15 at Aldi
   * Just about anywhere ($20+)
@@ -89,4 +90,5 @@
 ![Screenshot](https://user-images.githubusercontent.com/2898451/30746765-e64fb914-9f78-11e7-95e9-be9a553f8e42.png)
 - Stress Display
 ![Screenshot](https://user-images.githubusercontent.com/2898451/30746795-03799460-9f79-11e7-94e7-aa966bcbc0f1.png)
-
+- Bulb
+![Screenshot](https://user-images.githubusercontent.com/2898451/30747106-2fb89a84-9f7a-11e7-8cd4-b86e86ca3709.png)
