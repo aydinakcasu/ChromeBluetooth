@@ -4,7 +4,6 @@
  Demo to show how to use Chrome to connect to a heart rate monitor, as well as a Bluetooth smart bulb.  The ultimate goal creates a "Stress Display" that uses the heart rate value, to display a "traffic light" stress meter.  This consists of various shades of green, yellow or red depending on the heart rate value.
 ![Screenshot](https://user-images.githubusercontent.com/2898451/30746795-03799460-9f79-11e7-94e7-aa966bcbc0f1.png)
 
-![Screenshot](https://user-images.githubusercontent.com/2898451/30746214-0536a9a2-9f77-11e7-88c5-1cb686c37d4e.png)
 
 ## This will demonstrate how to use Chromes' bluetooth capabilities to:
 - Read battery status
@@ -24,6 +23,7 @@
 
 ## To try it out! (Live Demo):
 - https://aydinakcasu.github.io/ChromeBluetooth/
+![Screenshot](https://user-images.githubusercontent.com/2898451/30746090-8ea0e276-9f76-11e7-93ea-6d896c6c52aa.png)
 
 ## To use:
 - index.html 
@@ -69,12 +69,14 @@
 - Micro:bit
 - Raspberry PI
 - BB-8 (Star Wars)
-- Drone
+- Drone (Parrot Mini Drone Rolling Spider)
 - Thermometers
 
 ## Images:
 - Title
 ![Screenshot](https://user-images.githubusercontent.com/2898451/30746603-4753d20a-9f78-11e7-93fd-b8b903b98ca5.png)
+- Screenshot:
+![Screenshot](https://user-images.githubusercontent.com/2898451/30746090-8ea0e276-9f76-11e7-93ea-6d896c6c52aa.png)
 - On Desktop
 ![Screenshot](https://user-images.githubusercontent.com/2898451/30746214-0536a9a2-9f77-11e7-88c5-1cb686c37d4e.png)
 - On Android
