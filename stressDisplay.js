@@ -110,9 +110,15 @@ function getPayload(r, g, b) {   // Create the payload
 }
 
 function stressDisplay_disconnect() {   // Disconnect
+    setColorValue(0x00, 0x00, 0x00);
+    var send = getPayload(0x00, 0x00, 0x00);
+    stressDisplayLightBulb_Characteristic.writeValue(send);
+    sleep(50);
+
     if (stressDisplayLightBulb_Device.gatt.connected) {
         stressDisplayLightBulb_Device.gatt.disconnect();
     }
+
     if (stressDisplayHeartRate_Characteristic) {
         stressDisplayHeartRate_Characteristic.stopNotifications()
             .then(_ => {

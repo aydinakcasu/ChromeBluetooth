@@ -99,6 +99,7 @@ function lightBulb_countdown() {
 }
 
 function lightBulb_disconnect() {   // Disconnect
+    lightBulb_black();
     if (lightBulb_Device.gatt.connected) {
         lightBulb_Device.gatt.disconnect();
     }
