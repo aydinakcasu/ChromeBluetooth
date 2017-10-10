@@ -130,13 +130,13 @@ function initButtons() {
                 break;
 
             case 50: // 2
-                lightBulb_red();
+                lightBulb_green();
                 break;
             case 87: // W
                 lightBulb_yellow();
                 break;
             case 83: // S
-                lightBulb_green();
+                lightBulb_red();
                 break;
             case 88: // X
                 lightBulb_black();
