@@ -10,7 +10,7 @@
     <title>Chrome Bluetooth Demo</title>
 </head>
 
-<body style=" width:500px;">
+<body style=" width:500px;" onload="initButtons()">
     Chrome Bluetooth Talk - Assist:<br/>
     <br/>
     <div style="border-style: ridge;">
@@ -30,6 +30,7 @@
         <div id="color-value" style="border-style: ridge;backgroundColor:Red; width: 100px;height: 100px;"></div>
         <br/><button onclick="lightBulb_disconnect()" style="width:200px; height:50px;">Stop</button>
     </div>
+    <span id="lightBulbColorKey"></span>
 </body>
 
 </html>

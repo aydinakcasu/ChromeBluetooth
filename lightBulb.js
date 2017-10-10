@@ -104,3 +104,36 @@ function lightBulb_disconnect() {   // Disconnect
         lightBulb_Device.gatt.disconnect();
     }
 }
+
+function initButtons() {
+    var msg = document.getElementById('lightBulbColorKey');
+    document.body.addEventListener('keydown', function (e) {
+        msg.textContent = 'keydown:' + e.keyCode;
+        switch (e.keyCode) {
+            case 49: // 1
+                //case 27: // Escape
+                lightBulb_red();
+                break;
+            case 81: // Q
+                //case 9:  // Tab
+                lightBulb_green();
+                break;
+            case 65: // 1
+                //case 20: // Caps
+                lightBulb_blue();
+                break;
+            case 90: // Z
+                //case 16: // Shift
+                lightBulb_yellow();
+                break;
+            case 50: // 2
+                lightBulb_traffic();
+                break;
+            case 51: // 3
+                lightBulb_black();
+                break;
+            default:
+                break;
+        }
+    });
+}
