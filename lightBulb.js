@@ -95,8 +95,7 @@ function lightBulb_countdown() {
 
     lightBulb_blue();
     var b = new Date();
-    alert(a.toString()+', '+b.toString())
-
+    console.log(a.toString() + ', ' + b.toString())
 }
 
 function lightBulb_disconnect() {   // Disconnect
