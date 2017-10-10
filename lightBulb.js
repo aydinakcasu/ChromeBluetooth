@@ -2,6 +2,7 @@
 var lightBulb_Device = null;
 var lightBulb_Characteristic = null;
 
+
 function lightBulb_connect() {   // Connect
     let serviceUuid = '00007777-0000-1000-8000-00805f9b34fb';
     let characteristicUuid = '00008877-0000-1000-8000-00805f9b34fb';
@@ -122,16 +123,32 @@ function initButtons() {
                 //case 20: // Caps
                 lightBulb_blue();
                 break;
+
             case 90: // Z
                 //case 16: // Shift
-                lightBulb_yellow();
-                break;
-            case 50: // 2
-                lightBulb_traffic();
-                break;
-            case 51: // 3
                 lightBulb_black();
                 break;
+
+            case 50: // 2
+                lightBulb_red();
+                break;
+            case 87: // W
+                lightBulb_yellow();
+                break;
+            case 83: // S
+                lightBulb_green();
+                break;
+            case 88: // X
+                lightBulb_black();
+                break;
+
+            case 51: // 3
+                lightBulb_traffic();
+                break;
+            case 52: // 4
+                lightBulb_black();
+                break;
+
             default:
                 break;
         }
