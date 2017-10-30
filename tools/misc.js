@@ -36,6 +36,9 @@ function minDisplay(val) {
 function maxDisplay(val) {
     document.getElementById('maxStressDisplay').value = val;
 }
+function valueDisplay(val) {
+    document.getElementById('valueStressDisplay').value = val;
+}
 
 function setColorValue(r,g,b)
 {
