@@ -68,20 +68,7 @@ function stressDisplay_read(event) {
     var bpm = value.getUint8(1);
     setHeartRateValue(bpm);
 
-    var minStress = parseInt(document.getElementById("minStress").value);
-    var maxStress = parseInt(document.getElementById("maxStress").value);
-
-    var lut =  // determine a color based on the bpm value
-        (bpm < minStress) ?
-            { r: 0x00, g: 0xef * (bpm - 50) / (minStress - 50) + 0x10, b: 0x00 } : // green
-            (bpm > maxStress) ?
-                { r: 0xef * (bpm - maxStress) / (100 - maxStress) + 0x10, g: 0x00, b: 0x00 } :  // red
-                {
-                    r: 0xef * (bpm - minStress) / (maxStress - minStress) + 0x10,
-                    g: 0xef * (bpm - minStress) / (maxStress - minStress) + 0x10,
-                    b: 0x00
-                }; // yellow
-
+    var lut = colorLUT(bpm);
     setColorValue(lut.r, lut.g, lut.b);
 
     // log('{'
