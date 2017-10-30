@@ -50,13 +50,13 @@ function setColorValue(r,g,b)
     function rgbToHex(r, g, b) {
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
-    document.getElementById('rgb_value').value = 
+    document.getElementById('rgb_value').value =
         '('
-            +'0x'+ componentToHex(r)+','
-            +'0x'+componentToHex(g)+','
-            +'0x'+componentToHex(b) 
-        +')';
-    document.getElementById('color-value').style.backgroundColor = rgbToHex(r,g,b);
+        + '0x' + componentToHex(r) + ','
+        + '0x' + componentToHex(g) + ','
+        + '0x' + componentToHex(b)
+        + ')';
+    document.getElementById('color-value').style.backgroundColor = rgbToHex(r, g, b);
 }
 
 function setHeartRateValue(bpm)
