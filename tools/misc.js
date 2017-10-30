@@ -30,13 +30,19 @@ function setBatteryPercentage(value) {
 
 function minDisplay(val) {
     document.getElementById('minStressDisplay').value = val;
+    var lut = colorLUT(document.getElementById('valueStressDisplay').value);
+    setColorValue(lut.r, lut.g, lut.b);
 }
 
 function maxDisplay(val) {
     document.getElementById('maxStressDisplay').value = val;
+    var lut = colorLUT(document.getElementById('valueStressDisplay').value);
+    setColorValue(lut.r, lut.g, lut.b);
 }
 function valueDisplay(val) {
     document.getElementById('valueStressDisplay').value = val;
+    var lut = colorLUT(val);
+    setColorValue(lut.r, lut.g, lut.b);
 }
 
 function setColorValue(r, g, b) {
