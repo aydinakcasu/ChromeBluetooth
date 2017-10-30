@@ -59,4 +59,6 @@ function setColorValue(r,g,b)
 function setHeartRateValue(bpm)
 {
     document.getElementById('heartRate_value').value = bpm;
+    document.getElementById('valueStressDisplay').value = bpm;
+    document.getElementById('valueStress').value = bpm;
 }
