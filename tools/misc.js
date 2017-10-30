@@ -24,8 +24,7 @@ function sleep(delay) {
 }
 
 
-function setBatteryPercentage(value)
-{
+function setBatteryPercentage(value) {
     document.getElementById('battery_value').value = value;
 }
 
@@ -40,8 +39,7 @@ function valueDisplay(val) {
     document.getElementById('valueStressDisplay').value = val;
 }
 
-function setColorValue(r,g,b)
-{
+function setColorValue(r, g, b) {
     function componentToHex(c) {
         var hex = parseInt(c).toString(16);
         return hex.length == 1 ? "0" + hex : hex;
@@ -59,8 +57,7 @@ function setColorValue(r,g,b)
     document.getElementById('color-value').style.backgroundColor = rgbToHex(r, g, b);
 }
 
-function setHeartRateValue(bpm)
-{
+function setHeartRateValue(bpm) {
     document.getElementById('heartRate_value').value = bpm;
     document.getElementById('valueStressDisplay').value = bpm;
     document.getElementById('valueStress').value = bpm;
