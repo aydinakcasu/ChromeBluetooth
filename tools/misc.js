@@ -70,16 +70,18 @@ function setHeartRateValue(bpm) {
 }
 
 function colorLUT(bpm) {
+    var minAbs = 40;
+    var maxAbs = 160;
     var minStress = parseInt(document.getElementById("minStress").value);
     var maxStress = parseInt(document.getElementById("maxStress").value);
     var lut =  // determine a color based on the bpm value
         (bpm < minStress) ?
-            { r: 0x00, g: 0xef * (bpm - 50) / (minStress - 50) + 0x10, b: 0x00 } : // green
+            { r: 0x00, g: 0xef * (bpm - minAbs) / (minStress - minAbs) + 0x10, b: 0x00 } : // green
             (bpm > maxStress) ?
-                { r: 0x9f * (bpm - maxStress) / (160 - maxStress) + 0x60, g: 0x00, b: 0x00 } :  // red
+                { r: 0x9f * (bpm - maxStress) / (maxAbs - maxStress) + 0x60, g: 0x00, b: 0x00 } :  // red
                 {
-                    r: 0xef * (bpm - minStress) / (maxStress - minStress) + 0x10,
-                    g: 0xef * (bpm - minStress) / (maxStress - minStress) + 0x10,
+                    r: 0x9f * (bpm - minStress) / (maxStress - minStress) + 0x60,
+                    g: 0x9f * (bpm - minStress) / (maxStress - minStress) + 0x60,
                     b: 0x00
                 }; // yellow
     return lut;
