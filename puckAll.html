@@ -1,0 +1,57 @@
+<html>
+
+<head>
+  <script src="https://www.puck-js.com/puck.js"></script>
+
+</head>
+
+<body>
+  <button onclick="connect()">Connect</button>
+  <button onclick="stop()">Stop</button>
+  <button onclick="readAll()">Read</button>
+  <button onclick="magOn()">magOn</button>
+
+  <br/>lightSensor_value<input type="text" id="lightSensor_value" value="0" style="width:60px" readonly/>
+  <br/>mag_value<input type="text" id="mag_value" value="0" style="width:60px" readonly/>
+
+
+  <br/>
+  <button onclick="Puck.write('LED1.set();\n');">On!</button>
+  <button onclick="Puck.write('LED1.reset();\n');">Off!</button>
+  <br/>
+  <button onclick="Puck.write('LED2.set();\n');">On!</button>
+  <button onclick="Puck.write('LED2.reset();\n');">Off!</button>
+  <br/>
+  <button onclick="Puck.write('LED3.set();\n');">On!</button>
+  <button onclick="Puck.write('LED3.reset();\n');">Off!</button>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+    function connect()
+    {
+    Puck.connect(); 
+    }    
+    function magOn()
+    {
+      Puck.magOn();
+
+    }
+    function stop()
+    {
+Puck.magOff();
+    }
+   function readAll() {
+        Puck.eval("Puck.light()", function(v) {
+              document.getElementById('lightSensor_value').value = v;
+      });
+      Puck.on('mag', function(xyz) {
+          document.getElementById('mag_value').value = v;
+      });
+          setTimeout(function() {
+            readAll();
+          }, 250);
+   }
+  </script>

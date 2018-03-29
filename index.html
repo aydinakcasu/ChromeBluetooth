@@ -10,6 +10,7 @@
     <script src="temperature.js"></script>
     <script src="lightBulb.js"></script>
     <script src="stressDisplay.js"></script>
+    <script src="puck.js"></script>
     <script type="text/javascript" src="tools/colorpicker.js"></script>
     <link rel="stylesheet" type="text/css" href="css/themes.css" />
 
@@ -27,6 +28,14 @@
         <input type="text" id="battery_value" value="" style="width:30px" readonly/>%
     </div>
     <br/>
+    <div style="border-style: ridge;">
+        Puck:<br/>
+        <button onclick="puck_connect()">Start</button>
+        <input type="text" id="heartRate_value" value="0" style="width:30px" readonly/>
+        <button onclick="heartRate_disconnect()">Stop</button>
+    </div>
+    <br/>
+
     <div style="border-style: ridge;">
         Heart Rate:<br/>
         <button onclick="heartRate_connect()">Start</button>
