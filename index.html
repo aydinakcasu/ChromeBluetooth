@@ -11,6 +11,7 @@
     <script src="lightBulb.js"></script>
     <script src="stressDisplay.js"></script>
     <script src="puck.js"></script>
+    <script src="microbit.js"></script>
     <script type="text/javascript" src="tools/colorpicker.js"></script>
     <link rel="stylesheet" type="text/css" href="css/themes.css" />
 
@@ -50,6 +51,23 @@
     </div>
 
     <br/>
+
+    <div style="border-style: ridge;">
+        Microbit button:<br/>
+        <button onclick="microbit_connect()">Start</button>
+        A:<input type="text" id="microbit_valueA" value="0" style="width:30px" readonly/>
+        B:<input type="text" id="microbit_valueB" value="0" style="width:30px" readonly/>
+     <br/>
+     Acc (X,Y,Z) :
+        (<input type="text" id="microbit_valueAccX" value="0" style="width:70px" readonly/>
+        , <input type="text" id="microbit_valueAccY" value="0" style="width:70px" readonly/>
+        ,<input type="text" id="microbit_valueAccZ" value="0" style="width:70px" readonly/>
+        )
+        <br/>
+       Gravity:<input type="text" id="microbit_valueAccG" value="0" style="width:130px; text-align: right;" readonly/>
+        <button onclick="microbit_disconnect()">Stop</button>
+    </div>  
+      <br/>
     <div style="border-style: ridge;">
         Light Bulb:<br/>
         <button onclick="lightBulb_connect()">Start</button>
