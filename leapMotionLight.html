@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://js.leapmotion.com/leap-0.6.3.min.js"></script>
+<script>
+
+Leap.loop({}, function(frame) {
+
+  // Display Hand object data
+  var handOutput = document.getElementById("handData");
+  var handString = "";
+  if (frame.hands.length > 0) {
+      var hand = frame.hands[0];
+      var x =  hand.palmPosition[0];
+      var y =  hand.palmPosition[1];
+      var z =  hand.palmPosition[2];
+      handString += "Palm position: " + x + " mm<br />";
+      handString += "Palm position: " + y + " mm<br />";
+      handString += "Palm position: " + z + " mm<br />";
+  }
+  else {
+    handString += "";
+  }
+  handOutput.innerHTML = handString;
+})
+
+</script>
+</head>
+<body>
+<h1>Leap Motion JavaScript Sample</h1>
+<div id="main">
+
+  <h3>Hand data:</h3>
+  <div id="handData"></div>
+  <div style="clear:both;"></div>
+
+</div>
+</body>
+</html>
