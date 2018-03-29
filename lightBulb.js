@@ -40,7 +40,7 @@ function getPayload(r, g, b) {   // Create the payload
         r, // Red
         0x00, 0x50, 0x00, 0x00, 0x00
     ];
-    return Uint8Array.from(data); Í
+    return Uint8Array.from(data);
 }
 
 function lightBulb_traffic(characteristic) {   // Set a traffic light pattern
