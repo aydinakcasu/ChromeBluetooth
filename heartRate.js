@@ -8,8 +8,8 @@ function heartRate_connect() {
 
     navigator.bluetooth.requestDevice
         ({
-            filters: [{ services: [serviceUuid] }],
-            optionalServices: [serviceUuid]      
+            filters: [{ services: [serviceUuid] }]
+        //,    optionalServices: [serviceUuid]      
         })
         .then(device => { return device.gatt.connect(); })
         .then(server => { return server.getPrimaryService(serviceUuid); })
