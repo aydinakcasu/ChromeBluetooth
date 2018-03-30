@@ -29,13 +29,12 @@
         <input type="text" id="battery_value" value="" style="width:30px" readonly/>%
     </div>
     <br/>
-    <div style="border-style: ridge;">
+    <div style="border-style: ridge; display:none;">
         Puck:<br/>
         <button onclick="puck_connect()">Start</button>
         <input type="text" id="puck_value" value="0" style="width:30px" readonly/>
         <button onclick="puck_disconnect()">Stop</button>
     </div>
-    <br/>
 
     <div style="border-style: ridge;">
         Heart Rate:<br/>
@@ -50,9 +49,8 @@
         <button onclick="temperature_disconnect()">Stop</button>
     </div>
 
-    <br/>
 
-    <div style="border-style: ridge;">
+    <div style="border-style: ridge;  display:none;">
         Microbit button:<br/>
         <button onclick="microbit_connect()">Start</button>
         A:<input type="text" id="microbit_valueA" value="0" style="width:30px" readonly/>
