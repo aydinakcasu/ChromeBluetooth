@@ -148,6 +148,9 @@ function initButtons() {
             case 52: // 4
                 lightBulb_black();
                 break;
+            case 54: // 6
+                playToggleAudio();
+                break;
 
             default:
                 break;

@@ -1,5 +1,5 @@
 //https://makecode.microbit.org/_TVDUghHuMEMV
-
+// NEED LightBlue App.
 // https://ladvien.com/bluetooth-low-energy-javascript/
 // https://lancaster-university.github.io/microbit-docs/resources/bluetooth/bluetooth_profile.html
 
