@@ -52,10 +52,10 @@ function lightBulb_traffic(characteristic) {   // Set a traffic light pattern
 }
 
 function lightBulb_common(r, g, b) {
+    setColorValue(r, g, b);
     if (!lightBulb_Characteristic) return;
     var send = getPayload(r, g, b);    // Color
     lightBulb_Characteristic.writeValue(send);
-    setColorValue(r, g, b);
     sleep(50);
 }
 
@@ -143,7 +143,7 @@ function initButtons() {
                 break;
 
             case 51: // 3
-                lightBulb_traffic();
+                //lightBulb_traffic();
                 break;
             case 52: // 4
                 lightBulb_black();
