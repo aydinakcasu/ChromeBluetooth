@@ -49,8 +49,8 @@
         <button onclick="temperature_disconnect()">Stop</button>
     </div>
 
-
-    <div style="border-style: ridge;  display:none;">
+    <br/>
+    <div style="border-style: ridge;">
         Microbit button:<br/>
         <button onclick="microbit_connect()">Start</button>
         A:<input type="text" id="microbit_valueA" value="0" style="width:30px" readonly/>
@@ -58,12 +58,23 @@
      <br/>
      Acc (X,Y,Z) :
         (<input type="text" id="microbit_valueAccX" value="0" style="width:70px" readonly/>
-        , <input type="text" id="microbit_valueAccY" value="0" style="width:70px" readonly/>
+        ,<input type="text" id="microbit_valueAccY" value="0" style="width:70px" readonly/>
         ,<input type="text" id="microbit_valueAccZ" value="0" style="width:70px" readonly/>
         )
-        <br/>
-       Gravity:<input type="text" id="microbit_valueAccG" value="0" style="width:130px; text-align: right;" readonly/>
-        <button onclick="microbit_disconnect()">Stop</button>
+       , G's:<input type="text" id="microbit_valueAccG" value="0" style="width:70px; text-align: right;" readonly/>
+       <br/>
+       Magnet (X,Y,Z) :
+          (<input type="text" id="microbit_magnetAccX" value="0" style="width:70px" readonly/>
+          ,<input type="text" id="microbit_magnetAccY" value="0" style="width:70px" readonly/>
+          ,<input type="text" id="microbit_magnetAccZ" value="0" style="width:70px" readonly/>
+          )
+         , G's:<input type="text" id="microbit_magnetAccG" value="0" style="width:70px; text-align: right;" readonly/>
+         <br/>
+         Temp:
+            (<input type="text" id="microbit_temp" value="0" style="width:70px" readonly/>
+            ) centigrade
+          <br/>
+       <button onclick="microbit_disconnect()">Stop</button>
     </div>  
       <br/>
     <div style="border-style: ridge;">
@@ -78,7 +89,7 @@
         <br/><button onclick="lightBulb_disconnect()">Stop</button>
         <div id="color-picker" class="cp-default"></div>
         RGB: <input type="text" id="rgb_value" value="0" style="width:200px; font-family:Courier New;font-weight:bold;" readonly/>
-        <div id="color-value" style="border-style: ridge;backgroundColor:Red; width: 100px;height: 100px;"></div>
+        <div id="color-value" style="border-style: ridge; background-color:Red; width: 100px;height: 100px;"></div>
     </div>
 
     <br/>

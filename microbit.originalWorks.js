@@ -25,14 +25,16 @@ var aaa = {
 
 function microbit_connect() {
 
-    let serviceUuid = "e95d9882-251d-470a-a062-fa1922dfa9a8";
+    let serviceUuid        = "e95d9882-251d-470a-a062-fa1922dfa9a8";
     let characteristicUuid = "e95dda91-251d-470a-a062-fa1922dfa9a8";
 
     navigator.bluetooth.requestDevice({
-            filters: [{
-                services: [serviceUuid]
-            }],
-            optionalServices: [serviceUuid]
+            // filters: [{
+            //     services: [serviceUuid]
+            // }],
+            acceptAllDevices: true
+
+            , optionalServices: [serviceUuid]
         })
 
         .then(device => {

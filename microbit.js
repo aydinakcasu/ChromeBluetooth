@@ -13,23 +13,23 @@ var microbit_buttons = {
         uuid: "e95d9882-251d-470a-a062-fa1922dfa9a8"
     },
     characteristics: [{
-            name: "readButtonA",
-            uuid: "e95dda90-251d-470a-a062-fa1922dfa9a8",
-            read: function (value) {
-                var button = value.getUint8(0);
-                document.getElementById('microbit_valueA').value = button;
-                log(button);
-            }
-        },
-        {
-            name: "readButtonB",
-            uuid: "e95dda91-251d-470a-a062-fa1922dfa9a8",
-            read: function (value) {
-                var button = value.getUint8(0);
-                document.getElementById('microbit_valueB').value = button;
-                log(button);
-            }
+        name: "readButtonA",
+        uuid: "e95dda90-251d-470a-a062-fa1922dfa9a8",
+        read: function (value) {
+            var button = value.getUint8(0);
+            document.getElementById('microbit_valueA').value = button;
+            log(button);
         }
+    },
+    {
+        name: "readButtonB",
+        uuid: "e95dda91-251d-470a-a062-fa1922dfa9a8",
+        read: function (value) {
+            var button = value.getUint8(0);
+            document.getElementById('microbit_valueB').value = button;
+            log(button);
+        }
+    }
     ]
 };
 
@@ -48,19 +48,19 @@ var microbit_accelerometer = {
         uuid: "e95d0753-251d-470a-a062-fa1922dfa9a8"
     },
     characteristics: [{
-            name: "accelerometerData",
-            uuid: "e95dca4b-251d-470a-a062-fa1922dfa9a8",
-            read: function (value) {
-                readDataViewDump(value);
-                var endian = true;
-                var x = document.getElementById('microbit_valueAccX').value = value.getInt16(0, endian)/1000;
-                var y = document.getElementById('microbit_valueAccY').value = value.getInt16(2, endian)/1000;
-                var z = document.getElementById('microbit_valueAccZ').value = value.getInt16(4, endian)/1000;
-                var g = document.getElementById('microbit_valueAccG').value = (x ** 2 + y ** 2 + z ** 2)
-                    .toLocaleString();
-                log(g);
-            }
+        name: "accelerometerData",
+        uuid: "e95dca4b-251d-470a-a062-fa1922dfa9a8",
+        read: function (value) {
+            readDataViewDump(value);
+            var endian = true;
+            var x = document.getElementById('microbit_valueAccX').value = value.getInt16(0, endian) / 1000;
+            var y = document.getElementById('microbit_valueAccY').value = value.getInt16(2, endian) / 1000;
+            var z = document.getElementById('microbit_valueAccZ').value = value.getInt16(4, endian) / 1000;
+            var g = document.getElementById('microbit_valueAccG').value = (x ** 2 + y ** 2 + z ** 2)
+                .toLocaleString();
+            log(g);
         }
+    }
         // ,
         // {
         //     name: "accelerometerPeriod",
@@ -74,14 +74,58 @@ var microbit_accelerometer = {
     ]
 };
 
+var microbit_magnetometer = {  // Doesn't seem to work.  Does it need to be calibrated?
+    name: "magnetometer",
+    service: {
+        name: "magnetometer",
+        uuid: "e95df2d8-251d-470a-a062-fa1922dfa9a8"
+    },
+    characteristics: [{
+        name: "magnetometerData",
+        uuid: "e95dfb11-251d-470a-a062-fa1922dfa9a8",
+        read: function (value) {
+            alert('aaaa')
+            debugger;
+            readDataViewDump(value);
+            var endian = true;
+            var x = document.getElementById('microbit_magnetAccX').value = value.getInt16(0, endian) / 1000;
+            var y = document.getElementById('microbit_magnetAccY').value = value.getInt16(2, endian) / 1000;
+            var z = document.getElementById('microbit_magnetAccZ').value = value.getInt16(4, endian) / 1000;
+            var g = document.getElementById('microbit_magnetAccG').value = (x ** 2 + y ** 2 + z ** 2)
+                .toLocaleString();
+            log(g);
+        }
+    }
+    ]
+};
+
+var microbit_temperature = {  // Doesn't seem to work.  Does it need to be calibrated?
+    name: "temperature",
+    service: {
+        name: "temperature",
+        uuid: "E95D6100-251D-470A-A062-FA1922DFA9A8".toLowerCase()
+    },
+    characteristics: [{
+        name: "temperatureData",
+        uuid: "E95D9250-251D-470A-A062-FA1922DFA9A8".toLowerCase(),
+        read: function (value) {
+            var t = value.getUint8(0);
+            document.getElementById('microbit_temp').value = t;
+        }
+    }
+    ]
+};
+
 function processBluetoothServer(server, serviceData) {
     server.getPrimaryService(serviceData.service.uuid)
         .then(service => {
+            //serviceData.service.serviceObject = service;
             for (var i = 0; i < serviceData.characteristics.length; i++) {
                 var characteristicData = serviceData.characteristics[i];
                 (function (characteristicData) {
                     service.getCharacteristic(characteristicData.uuid)
                         .then(characteristic => {
+                            //characteristicData.characteristicObject = characteristic;
                             return characteristic.startNotifications()
                                 .then(_ => {
                                     characteristic.addEventListener(
@@ -98,42 +142,45 @@ function processBluetoothServer(server, serviceData) {
         })
 }
 
-function microbit_connect() {
-    var serviceData = microbit_buttons;
-    //var serviceData =  microbit_accelerometer;
+var serverObject = null;
 
-    var serviceUuid = serviceData.service.uuid;
+function processBluetoothList(prefix, list) {
+    var serviceUuidList = [];
+    for (var i = 0; i < list.length; i++) {
+        serviceUuidList.push(list[i].service.uuid);
+    }
 
     navigator.bluetooth.requestDevice({
-            filters: [{
-                services: [serviceUuid]
-            }],
-            optionalServices: [serviceUuid]
-        })
+        filters: [{ namePrefix: prefix }]
+        , optionalServices: serviceUuidList
+    })
         .then(device => {
             return device.gatt.connect();
         })
         .then(server => {
-            processBluetoothServer(server, serviceData);
+            serverObject = server;
+            for (var i = 0; i < list.length; i++) {
+                processBluetoothServer(server, list[i]);
+            }
         })
-
         .catch(error => {
             log('Error! ' + error);
         });
 }
 
+function microbit_connect() {
+    processBluetoothList
+        ("BBC micro:bit"
+        , [
+            microbit_buttons
+            , microbit_accelerometer
+            // , microbit_magnetometer
+            ,  microbit_temperature
+        ]);
+}
+
 
 
 function microbit_disconnect() {
-    if (microbit_Characteristic) {
-        microbit_Characteristic.stopNotifications()
-            .then(_ => {
-                microbit_Characteristic.removeEventListener(
-                    'characteristicvaluechanged',
-                    hearRate_read);
-            })
-            .catch(error => {
-                log('Error! ' + error);
-            });
-    }
+    serverObject.disconnect();
 }
